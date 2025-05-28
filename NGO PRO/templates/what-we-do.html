@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HopeHands NGO - What We Do</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #f5f5f5; }
+        
+        .hero-section {
+            background-color: #13a2ea;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-body {
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #f1f1f1;
+        }
+
+        .cta-buttons {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .cta-buttons .btn {
+            margin: 10px;
+        }
+
+        .about-section {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+        }
+
+        .list-unstyled li {
+            font-size: 1.2rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
+        <div class="container">
+            <a class="navbar-brand" href="/">HopeHands NGO</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/what-we-do">What We Do</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/donate">Donate</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/donation_history">Donors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/events">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/emergency-contact">Emergency Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>What We Do</h1>
+        <p>Our mission is to enhance the quality of life for the elderly, offering services and support that enable active, healthy, and dignified living.</p>
+    </section>
+
+    <!-- Our Services Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Our Key Activities</h2>
+            <div class="row">
+                <!-- Elderly Care -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="static/elderly-care.jpg" class="card-img-top" alt="Elderly Care">
+                        <div class="card-body">
+                            <h5 class="card-title">Elderly Care</h5>
+                            <p class="card-text">Providing personalized care and assistance to seniors, ensuring their health and safety in a nurturing environment.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Volunteer Engagement -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="static/volunteer-engagement.jpg" class="card-img-top" alt="Volunteer Engagement">
+                        <div class="card-body">
+                            <h5 class="card-title">Volunteer Engagement</h5>
+                            <p class="card-text">Involving the community by encouraging individuals to volunteer and support elderly care programs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financial Assistance -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="static/financial-assistance.jpg" class="card-img-top" alt="Financial Assistance">
+                        <div class="card-body">
+                            <h5 class="card-title">Financial Assistance</h5>
+                            <p class="card-text">Raising funds through donations to provide financial assistance to elderly individuals in need.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section: Food, Shelter, Medical Emergency -->
+    <section class="cta-buttons">
+        <h2>Our Support Initiatives</h2>
+        <div>
+            <!-- Button linking to Food Donations -->
+            <a href="{{ url_for('food_donations') }}" class="btn btn-primary btn-lg">View Food Donations</a>
+            
+            <!-- Button linking to Shelters Found -->
+            <a href="{{ url_for('shelters_found') }}" class="btn btn-success btn-lg">View Shelters Found</a>
+            
+            <!-- Button linking to Medical Emergencies -->
+            <a href="{{ url_for('medical_emergencies') }}" class="btn btn-danger btn-lg">View Medical Emergencies</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2>Our Approach</h2>
+            <p>At HopeHands NGO, we follow a holistic approach that ensures the well-being of our elderly members through:</p>
+            <ul class="list-unstyled">
+                <li><strong>Compassionate Care:</strong> Providing personalized care tailored to individual needs.</li>
+                <li><strong>Health & Wellness Programs:</strong> Regular health check-ups, exercise programs, and mental wellness activities.</li>
+                <li><strong>Community Support:</strong> Building a strong support system through community initiatives and engagement.</li>
+                <li><strong>Educational Workshops:</strong> Educating families and caregivers on how to best support elderly members.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- More Features -->
+    <section class="section">
+        <div class="container">
+            <h2>How You Can Help</h2>
+            <p>HopeHands NGO is able to achieve all of its goals with the help of volunteers and donations. Here's how you can contribute:</p>
+            <div class="row">
+                <!-- Volunteer Section -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="static/volunteer.jpg" class="card-img-top" alt="Volunteer">
+                        <div class="card-body">
+                            <h5 class="card-title">Become a Volunteer</h5>
+                            <p class="card-text">Join us and make a difference. Volunteers are an essential part of our community efforts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Donation Section -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="static/donate.jpg" class="card-img-top" alt="Donate">
+                        <div class="card-body">
+                            <h5 class="card-title">Make a Donation</h5>
+                            <p class="card-text">Your donation helps us continue providing essential services to those in need.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advocacy Section -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="static/advocacy.jpg" class="card-img-top" alt="Advocacy">
+                        <div class="card-body">
+                            <h5 class="card-title">Advocate for Change</h5>
+                            <p class="card-text">Help raise awareness and advocate for policies that support elderly care and well-being.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 HopeHands NGO. All rights reserved.</p>
+        <div>
+            <a href="https://facebook.com/hopehands" class="text-dark me-3">Facebook</a>
+            <a href="https://twitter.com/hopehands" class="text-dark">Twitter</a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

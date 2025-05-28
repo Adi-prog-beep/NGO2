@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation History</title>
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #f4f4f4; }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        h2 { text-align: center; padding: 20px 0; }
+    </style>
+</head>
+
+
+<body>
+    <h2>Donation History</h2>
+    <table id="donationHistoryTable">
+        <tr>
+            <th>ID</th>
+            <th>Donor Name</th>
+            <th>Amount (₹)</th>
+            <th>Date & Time</th>
+        </tr>
+    </table>
+
+    <script>
+        window.onload = function() {
+            let donationHistory = JSON.parse(localStorage.getItem('donationHistory')) || [];
+            let table = document.getElementById('donationHistoryTable');
+            
+            if (donationHistory.length === 0) {
+                let row = table.insertRow(1);
+                let cell = row.insertCell(0);
+                cell.colSpan = 4;
+                cell.textContent = "No donations yet.";
+                return;
+            }
+
+            donationHistory.forEach((donation, index) => {
+                let row = table.insertRow();
+                row.insertCell(0).textContent = index + 1;
+                row.insertCell(1).textContent = donation.name || 'Anonymous';
+                row.insertCell(2).textContent = '₹' + donation.amount;
+                row.insertCell(3).textContent = donation.date;
+            });
+        };
+    </script>
+</body>
+</html>

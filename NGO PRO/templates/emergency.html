@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HopeHands NGO - Emergency Contact</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(90deg, rgba(0, 123, 255, 0.9) 0%, rgba(0, 185, 255, 0.7) 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            border-bottom: 5px solid #007bff;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.5rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 60px 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #007bff;
+            font-weight: 600;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        /* Emergency Contact List */
+        .list-group-item {
+            font-size: 1.2rem;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            background-color: #fff;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .list-group-item:hover {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transform: translateY(-5px);
+        }
+
+        .list-group-item a {
+            text-decoration: none;
+            color: inherit;
+            font-weight: bold;
+        }
+
+        .list-group-item i {
+            margin-right: 10px;
+        }
+
+        /* Card Styles */
+        .card {
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            color: #007bff;
+            font-weight: 600;
+        }
+
+        .card-body {
+            background-color: rgba(0, 123, 255, 0.1);
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        /* Form Styles */
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form button {
+            margin-bottom: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            font-size: 1rem;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            transition: border 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border: 1px solid #007bff;
+        }
+
+        .contact-form button {
+            background-color: #007bff;
+            color: white;
+            font-size: 1.2rem;
+            padding: 12px;
+            width: 100%;
+            border-radius: 8px;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+            cursor: pointer;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Modal (Optional) */
+        .modal-content {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 20px;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .list-group-item {
+                font-size: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
+        <div class="container">
+            <a class="navbar-brand" href="/">HopeHands NGO</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/what-we-do">What We Do</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/donate">Donate</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/donation_history">Donors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/events">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/emergency-contact">Emergency Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Emergency Contact</h1>
+        <p>In critical times, we are here to assist you. Don't hesitate to reach out!</p>
+    </section>
+
+    <!-- Emergency Contact Information -->
+    <section class="section">
+        <div class="container">
+            <h2>Emergency Helplines</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><i class="fas fa-phone-alt"></i><a href="tel:+911234567890">Elder Care Helpline: +91 123 456 7890</a></li>
+                <li class="list-group-item"><i class="fas fa-hospital"></i><a href="tel:+919876543210">Medical Assistance: +91 987 654 3210</a></li>
+                <li class="list-group-item"><i class="fas fa-ambulance"></i><a href="tel:+915551234567">24/7 Emergency: +91 555 123 4567</a></li>
+                <li class="list-group-item"><i class="fas fa-headset"></i><a href="tel:+918459547994">Additional Support: +91 845 954 7994</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Safety Tips Section -->
+    <section class="section">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Important Safety Tips for Elders</h5>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Always save emergency numbers on your phone or in a visible place.</li>
+                        <li><i class="fas fa-check-circle"></i> Keep a list of your medical conditions and medications nearby.</li>
+                        <li><i class="fas fa-check-circle"></i> Know your nearest hospital, doctor, and emergency shelter locations.</li>
+                        <li><i class="fas fa-check-circle"></i> Stay connected with family and caregivers regularly.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Contact Form Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Contact Us for Emergency Support</h2>
+            <div class="contact-form">
+                <form action="/submit" method="POST">
+                    <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                    <textarea class="form-control" name="message" rows="4" placeholder="Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 HopeHands NGO. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

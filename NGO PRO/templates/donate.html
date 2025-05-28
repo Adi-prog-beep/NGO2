@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - HopeHands NGO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; overflow-x: hidden; background-color: #f4f4f9; }
+        
+        /* Video Background */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .section {
+            text-align: center;
+            padding: 60px 0;
+            color: #333;
+        }
+
+        .custom-donation input,
+        .custom-donation button {
+            margin: 10px 0;
+        }
+
+        .custom-donation input,
+        .custom-donation button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .custom-donation button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+
+        .custom-donation button:hover {
+            background-color: #0056b3;
+        }
+
+        /* QR Modal */
+        #qrModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Video Container -->
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="{{ url_for('static', filename='donationbg.mp4') }}" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
+        <div class="container">
+            <a class="navbar-brand" href="/">HopeHands NGO</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/what-we-do">What We Do</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/donate">Donate</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/donation_history">Donors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/events">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/emergency-contact">Emergency Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Make a Difference Today</h1>
+    </section>
+
+    <!-- Donation Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Support Us</h2>
+            <p class="note">Don't worry, your name is not saved.</p>
+            <div class="custom-donation">
+                <h3>Custom Donation</h3>
+                <form id="donationForm">
+                    <input type="text" id="name" placeholder="Your Name" class="form-control" required>
+                    <input type="number" id="amount" placeholder="Donation Amount (Rs)" class="form-control" min="1" required>
+                    <button type="submit" class="btn btn-primary">Donate Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- QR Modal -->
+    <div id="qrModal">
+        <div class="modal-content">
+            <h4>Scan to Donate</h4>
+            <div id="amountText" style="color: #28a745; font-size: 24px;"></div>
+            <img src="{{ url_for('static', filename='payment.jpg') }}" alt="QR Code for Donation">
+            <button class="btn btn-secondary" onclick="closeQrCode()">Done</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <p>&copy; 2025 HopeHands NGO. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        document.getElementById('donationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get user input values
+            let name = document.getElementById('name').value;
+            let amount = document.getElementById('amount').value;
+
+            // Check if amount is valid
+            if (amount > 0) {
+                // Show QR Modal with donation details
+                document.getElementById('qrModal').style.display = 'flex';
+                document.getElementById('amountText').innerText = 'Amount: ₹ ' + amount;
+            } else {
+                alert("Please enter a valid donation amount.");
+            }
+        });
+
+        function closeQrCode() {
+            document.getElementById('qrModal').style.display = 'none';
+            alert('Thank you for your donation!');
+        }
+    </script>
+</body>
+</html>
